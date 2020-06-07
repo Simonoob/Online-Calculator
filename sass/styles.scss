@@ -1,4 +1,4 @@
-@import "desktop";
+
 *{
     margin:0;
     padding: 0;
@@ -10,6 +10,7 @@ body{
     font-size: 2rem;
     display: flex;
     justify-content: center;
+
     .calculator-container{
         padding: 0.5rem;
 
@@ -34,7 +35,7 @@ body{
 
         .button-container{
             display: grid;
-            grid-template-columns: repeat(4, minmax(2rem,10rem));
+            grid-template-columns: repeat(4, minmax(2rem,7rem));
             grid-template-rows: repeat(5, 5.5rem);
             grid-gap: 3px;
 
@@ -51,17 +52,5 @@ body{
             }
 
         }
-    }
-}
-
-@media (min-width:480px){
-    body{
-        background-color: lightgreen;
-        .button-container{
-            display: grid;
-            grid-template-columns: repeat(4, minmax(1rem,10rem));
-            grid-template-rows: repeat(5, 12rem);
-            grid-gap: 3px;
-       }
     }
 }
