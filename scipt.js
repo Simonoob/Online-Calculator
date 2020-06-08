@@ -1,20 +1,26 @@
-const numbers = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("button");
 const entry = document.querySelector(".display-text");
+const history = document.querySelector(".history-text");
 let currentEntry="";
-let lastEntry=0;
+let workingValue = undefined;
 let operator;
 
 
-numbers.forEach(number => number.addEventListener("click",message));
-function message(e){
+buttons.forEach(button => button.addEventListener("click",execute));
+function execute(e){
     const targetId = e.target.id;
     if (e.target.classList.value === "number"){
+        entry.textContent = "";
         currentEntry += targetId;
-        entry.textContent += e.target.textContent;
+        entry.textContent += targetId;
     }
     else{
         console.log(targetId);
+        history.textContent += `${currentEntry} ${e.target.textContent} `;
         switch(targetId){
+            case "equals":
+                calculate();
+                break;
             case "add":
                 operator = "+";
                 break;
@@ -22,7 +28,6 @@ function message(e){
                 operator = "-";
                 break;
         }
-        lastEntry = currentEntry;
         console.log(operator);
         calculate();
     } 
@@ -31,15 +36,17 @@ function message(e){
 let result;
 
 function calculate(){
-    if (lastEntry!= 0 && currentEntry!= 0 && operator){
-        lastEntry = parseInt(lastEntry);
+    if (currentEntry!="" && operator){
+        workingValue === undefined ? workingValue=0:{};
+        workingValue = parseInt(workingValue);
         currentEntry = parseInt(currentEntry);
         switch(operator){
             case "+":
-                result = lastEntry + currentEntry;
+                result = workingValue + currentEntry;
                 break;
         }
         entry.textContent = result;
+        currentEntry = "";
+        workingValue = result;
     }
-    else{}
 }
