@@ -10,19 +10,18 @@ body{
     background: rgb(0,87,231);
     font-size: 2rem;
     display: flex;
-    justify-content: center;
-    align-content: center;
+    flex-direction: column;
 
     .calculator-container{
+        justify-content: center;
         padding: 0.5rem;
         margin: auto;
         .screen-container{
-            grid-column: 1,-1;
+            max-width: 28.57rem;
             background-color: rgb(255, 255, 255);
-            display: flex;
             flex-direction: column;
             justify-content: space-around;
-            align-items: flex-end;
+            text-align: end;
             word-wrap: break-word;
             word-break: break-all;
             min-height: 10rem;
@@ -87,5 +86,13 @@ body{
             }
 
         }
+    }
+    footer {
+        font-size: 2.5em;
+        display: block;
+        margin: 1em auto;
+    }
+    footer > a{
+        color: rgb(255, 166, 0);
     }
 }
