@@ -17,6 +17,9 @@ class Calculator {
     }
 
     appendNumber(number) {
+        if (number === "." && this.entry=== ""){
+            this.entry = "0.";
+        }
         if (number === "." && this.entry.includes(".")) {
             return;
         }
@@ -24,13 +27,14 @@ class Calculator {
     }
 
     chooseOperation(operation) {
+        this.operation = operation;
         if (this.entry === "") {
             return;
         }
+        this.updateText();
         if (this.history !== "") {
             this.compute();
         }
-        this.operation = operation;
         this.history = this.entry;
         this.entry = "";
     }
@@ -52,7 +56,7 @@ class Calculator {
             case "*":
                 computation = prev * current;
                 break;
-            case "÷":
+            case "/":
                 computation = prev / current;
                 break;
             default:
@@ -62,6 +66,7 @@ class Calculator {
         this.entry = computation;
         this.operation = undefined;
         this.history = "";
+        this.updateText();
     }
 
     getEntryNumber(number) {
@@ -108,7 +113,10 @@ class Calculator {
                 this.historyText.innerText = "✨💁‍♂️✨";
                 break;
             case "379009":
-                this.historyText.innerText = "👨‍💻";
+                this.historyText.innerText = "Nerdy boy👨‍💻";
+                break;
+            case "376006":
+                this.historyText.innerText = "Nerdy boy👨‍💻";
                 break;
             case "05537":
                 this.historyText.innerText = "🍠";
@@ -116,8 +124,17 @@ class Calculator {
             case "1907039":
                 this.historyText.innerText = "⚒️🗿";
                 break;
+            case "1607036":
+                this.historyText.innerText = "⚒️🗿";
+                break;
             case "0.5380":
                 this.historyText.innerText = "🐷";
+                break;
+            case "35380":
+                this.historyText.innerText = "🐷";
+                break;
+            case "5637335.1":
+                this.historyText.innerText = "👀🦵";
                 break;
             case "5637335.1":
                 this.historyText.innerText = "👀🦵";
@@ -128,6 +145,8 @@ class Calculator {
             case "0.5535":
                 this.historyText.innerText = "🛏️";
                 break;
+            case "455":
+                this.historyText.innerText = "Thicc 🍑";
         }
     }
 }
